@@ -27,8 +27,10 @@ public class FilterAndAction {
 		return result;
 	}
 	
-	public LazyIterable<String> filterWordsLongerThan4AndUpperCaseGsCollectionTest(LazyIterable<String> lazyIterable){
-		 return lazyIterable.select(e -> e.length() > 4).collect(String::toUpperCase);
+	public LazyIterable<String> filterWordsLongerThan4AndUpperCaseGsCollectionTest(
+			LazyIterable<String> lazyIterable) {
+		return lazyIterable.select(e -> e.length() > 4).collect(
+				String::toUpperCase);
 	}
 	
 	public ParallelListIterable<String> filterWordsLongerThan4AndUpperCaseGsCollectionTest(ParallelListIterable<String> parallelListIterable){

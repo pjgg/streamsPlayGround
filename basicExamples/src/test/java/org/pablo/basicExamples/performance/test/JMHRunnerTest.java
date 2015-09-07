@@ -1,6 +1,5 @@
 package org.pablo.basicExamples.performance.test;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -14,7 +13,7 @@ public class JMHRunnerTest {
 	@Test
     public void runTests() throws RunnerException
     {		
-        int warmupCount = 5;
+		int warmupCount = 5;
         int runCount = 50;
         Options opts = new OptionsBuilder()
                 .include("org.pablo.basicExamples.performance.test.*")

@@ -103,7 +103,7 @@ filterWordsLongerThan4AndUpperCaseJava8StreamsTest               thrpt   50  23.
  Java 8 Stream         23.102 ops
  GS Collection lazy    23.806 ops
  ```
- On the other hand both introduces a fancy way to make a code parallel (fork and join approach) and double the performance. Note that not all the problems are possible to make it parallel. Sometimes you need to synchronize results and make it sequential in practice. In those cases the performance could be even worst if you make it parallel. 
+On the other hand both introduces a fancy way to make a code parallel (fork and join approach) and double the performance. Note that not all the problems are possible to make it parallel. Sometimes you need to synchronize results and make it sequential in practice. In those cases the performance could be even worst if you make it parallel. 
  ```
 Java 8 Stream parallel 43.960 ops
 GS Collection parallel 50.217 ops
@@ -111,9 +111,9 @@ GS Collection parallel 50.217 ops
 
 ## Conclusion
  
- Java 8 Stream API make collection operation more readable (less verbose) and improve their performance. You will have tons of new operation that you can make over your stream as filter, sort, map, matching, reducing...collect, so it's something that you should keep in mind. Also sometimes you can make a function parallel in a very simple way (just write stream.parallel), improving the performance even more, in a multi-core environment.  
+Java 8 Stream API make collection operation more readable (less verbose) and improve their performance. You will have tons of new operation that you can make over your stream as filter, sort, map, matching, reducing...collect, so it's something that you should keep in mind. Also sometimes you can make a function parallel in a very simple way (just write stream.parallel), improving the performance even more, in a multi-core environment.  
  
- On the other hand you have open source implementations as Gs Collection, that make some code optimization, improving the standard performance and also give you some extra data structures and function such as immutable list, eager behavior, multiset (bags), structures etc... Gs Collection guys did a great job!. Maybe nowadays, it's the fastest Stream implementation over all languages and technologies and less memory consumption. You should also keep in mind this library, in case you have a high performance requirements.  
+On the other hand you have open source implementations as Gs Collection, that make some code optimization, improving the standard performance and also give you some extra data structures and function such as immutable list, eager behavior, multiset (bags), structures etc... Gs Collection guys did a great job!. Maybe nowadays, it's the fastest Stream implementation over all languages and technologies and less memory consumption. You should also keep in mind this library, in case you have a high performance requirements.  
  
 
 
