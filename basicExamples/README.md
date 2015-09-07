@@ -10,8 +10,8 @@ Java 8 has come with a lot of new features as declarative functional programming
 
 In this module I will be focus in Streams API, more in detail I would like to compare Java 8 VS Gs Collections VS iterating model. 
 
-If you have a look to different approaches to manage collections you would find four ways:
--  Iterating module
+If you have a look to different approaches in order to manage collections, you would find four ways:
+-  Iterating model
 -  Java 8 Streams
 -  Gs Collections
 -  Scala
