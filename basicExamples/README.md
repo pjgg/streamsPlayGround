@@ -74,6 +74,7 @@ So all the approaches are doing the same. It's important in order to be comparis
 
 ## Result
  
+ ```
  Server: i7
  OS: OS x 10.8.3
  warmup: 5 iterations
@@ -88,21 +89,25 @@ filterWordsLongerThan4AndUpperCaseGsCollectionUnmodificableTest  thrpt   50  20.
 filterWordsLongerThan4AndUpperCaseIretaringTest                  thrpt   50  19.993 ± 0.072  ops/s
 filterWordsLongerThan4AndUpperCaseJava8StreamsParallelTest       thrpt   50  43.960 ± 0.353  ops/s
 filterWordsLongerThan4AndUpperCaseJava8StreamsTest               thrpt   50  23.102 ± 0.196  ops/s
+ ```
  
  To sum up we can conclude that Java 8 Stream API improve the performance compare to iteration model approach. 
  
+ ```
  Java 8 Stream         23.102 ops
  Java 8 Iterating      19.993 ops
+ ```
  
  and also we can conclude that Gs Collection library has a better performance than Java 8 Stream API
- 
+ ```
  Java 8 Stream         23.102 ops
  GS Collection lazy    23.806 ops
- 
+ ```
  On the other hand both introduce a fancy way to make a code parallel (fork and join approach) and double the performance. Note that not all the problems are parallel. Sometimes you need to synchronize results and make it sequential in practice. In those cases the performance could be even worst if you make it parallel. 
- 
+ ```
 Java 8 Stream parallel 43.960 ops
 GS Collection parallel 50.217 ops
+```
 
 ## Conclusion
  
