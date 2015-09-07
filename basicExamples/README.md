@@ -6,7 +6,7 @@ This is a simple multi-pom project to have fun and test java Stream API, complet
 
 Comparison between Java 8  Stream API and GS Collections through JMH micro benchmark.
 
-Java 8 has come with a lot of new features as declarative functional programming functions (Lamdba expressions), completableFutures (fixing java 7 futures, locking thread behavior), or the new Streams API, that it's a new way to handler collections and manage parallelism.  
+Java 8 has come with a lot of new features as declarative functional programming (Lamdba expressions), completableFutures (fixing java 7 futures, locking thread behavior), or the new Streams API, that it's a new way to handler collections and manage parallelism.  
 
 In this module I will be focus in Streams API, more in detail I would like to compare Java 8 VS Gs Collections VS iterating model. 
 
