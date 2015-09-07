@@ -1,0 +1,60 @@
+yntax: glob
+
+**.class
+**.bak
+.settings
+.classpath
+.project
+.DS_Store
+
+syntax: glob
+*.log
+*/target/*
+test-ouput\
+*.bak
+**.prefs
+
+syntax: regexp
+
+^target$
+/target$
+/target/
+^test-ouput$
+/test-ouput$
+/test-ouput/
+^cruise-output$
+/cruise-output$
+/cruise-output/
+
+syntax: regexp
+ 
+target      # maven output
+\.classpath # eclipse
+\.project   # eclipse
+\.settings  # eclipse
+test-output # eclipse junit/testng plugin output
+bin
+bin/target/
+build/classes
+classes
+
+syntax: regexp
+^dump\.rdb$
+syntax: regexp
+^acceptance-tests/apps-acceptance-tests/dump\.rdb$
+syntax: regexp
+^model/velocity\.log$
+syntax: regexp
+^model/velocity\.log$
+syntax: regexp
+^model/velocity\.log$
+syntax: regexp
+^model/velocity\.log$
+syntax: regexp
+^cruise-output\.xml$
+syntax: regexp
+\.MF$
+syntax: regexp
+^model/velocity\.log\.1$
+syntax: regexp
+^services/bootstrap/dump\.rdb$
