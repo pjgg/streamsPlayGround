@@ -1,6 +1,5 @@
 # Streams Play Ground
 
-
 ## Introduction
 This is a simple multi-pom project to have fun and test java Stream API, completable futures and other new java 8 features. 
 
