@@ -103,7 +103,7 @@ filterWordsLongerThan4AndUpperCaseJava8StreamsTest               thrpt   50  23.
  Java 8 Stream         23.102 ops
  GS Collection lazy    23.806 ops
  ```
- On the other hand both introduces a fancy way to make a code parallel (fork and join approach) and double the performance. Note that not all the problems are parallel. Sometimes you need to synchronize results and make it sequential in practice. In those cases the performance could be even worst if you make it parallel. 
+ On the other hand both introduces a fancy way to make a code parallel (fork and join approach) and double the performance. Note that not all the problems are possible to make it parallel. Sometimes you need to synchronize results and make it sequential in practice. In those cases the performance could be even worst if you make it parallel. 
  ```
 Java 8 Stream parallel 43.960 ops
 GS Collection parallel 50.217 ops
