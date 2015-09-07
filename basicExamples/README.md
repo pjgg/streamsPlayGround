@@ -16,7 +16,7 @@ If you have a look to different approaches in order to manage collections, you w
 -  Gs Collections
 -  Scala
 
-Having a look to several videos as http://www.infoq.com/presentations/java-streams-scala-parallel-collections and documents as http://www.slideshare.net/InfoQ/parallellazy-performance-java-8-vs-scala-vs-gs-collections you get the conclusion that Gs Collections it's far away the best approach, however as a engineer you have to test it, I mean you should not believe what a random person tell you in order to make a decision, you should build your own test suit and check if make sense what this person is telling you. 
+Having a look to several videos as http://www.infoq.com/presentations/java-streams-scala-parallel-collections and documents as http://www.slideshare.net/InfoQ/parallellazy-performance-java-8-vs-scala-vs-gs-collections you get the conclusion that Gs Collections it's far away the best approach, however as an engineer you have to test it, I mean you should not believe what a random person tell you in order to make a decision, you should build your own test suit and check if make sense what this person is telling you. 
 
 According GSColleciton guys a serial Count operation performance, rounds the following numbers:
 
