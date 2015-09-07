@@ -72,7 +72,7 @@ public static class forTestComparator implements Comparator<String> {
 
 So all the approaches are doing the same. It's important in order to be comparison fair.
 
- ### Result
+ ## Result
  
  Server: i7
  OS: OS x 10.8.3
@@ -104,7 +104,7 @@ filterWordsLongerThan4AndUpperCaseJava8StreamsTest               thrpt   50  23.
 Java 8 Stream parallel 43.960 ops
 GS Collection parallel 50.217 ops
 
- ### Conclusion
+ ## Conclusion
  
  Java 8 Stream API make collection operation more readable (less verbose) and improve their performance. You will have tons of new operation that you can make over your stream as filter, sort, map, matching, reducing...collect, so it's something that you should keep in mind. Also sometimes you can make a function parallel in a very simple way (just write stream.parallel), improving the performance even more, in a multi-core environment.  
  
