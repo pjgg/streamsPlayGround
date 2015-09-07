@@ -15,7 +15,7 @@ public class JMHRunnerTest {
     public void runTests() throws RunnerException
     {		
         int warmupCount = 5;
-        int runCount = 5;
+        int runCount = 50;
         Options opts = new OptionsBuilder()
                 .include("org.pablo.basicExamples.performance.test.*")
                 .warmupTime(TimeValue.seconds(2))
