@@ -42,7 +42,7 @@ In other words
  
 ## Conclusion
 
-Spring Data it's quite powerful, and also the performance it's not bad if you think in all the stuff it's give you. How ever if you require a high performance aoolication maybe you should consider to move on to a Reactive Streams paradigm, improving your performance in at least 30% (think that we didn't play with parallel Streams).  
+Spring Data it's quite powerful, and also the performance it's not bad if you think in all the stuff it's give you. However if you require a high performance application maybe you should consider to move on to a Reactive Streams paradigm, improving your performance in at least 30% (think that we didn't play with parallel Streams).  
 
  
 
