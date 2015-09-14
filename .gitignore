@@ -10,6 +10,7 @@ yntax: glob
 syntax: glob
 *.log
 */target/*
+*/test-classes/*
 test-ouput\
 *.bak
 **.prefs
