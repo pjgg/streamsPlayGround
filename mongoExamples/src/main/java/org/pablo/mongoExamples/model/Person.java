@@ -16,17 +16,17 @@ public class Person {
 		this.firstname = fName;
 		this.lastname = lName;
 	}
-	
-	public Person(){}
+
+	public Person() {
+	}
 
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
 
 	public String getFirstname() {
 		return firstname;

@@ -15,30 +15,33 @@ import com.mongodb.reactivestreams.client.Success;
 public class ReactiveMongoTemplate {
 
 	private final ReactiveDbFactory reactiveDbFactory;
-				
-	public ReactiveMongoTemplate(ReactiveDbFactory reactiveDbFactory){
+
+	public ReactiveMongoTemplate(ReactiveDbFactory reactiveDbFactory) {
 		this.reactiveDbFactory = reactiveDbFactory;
 	}
-	
-	public List<Document> findAll(String collectionName) throws Throwable{
-		MongoCollection<Document> collection = reactiveDbFactory.getDatabase().getCollection(collectionName, Document.class);
+
+	public List<Document> findAll(String collectionName) throws Throwable {
+		MongoCollection<Document> collection = reactiveDbFactory.getDatabase()
+				.getCollection(collectionName, Document.class);
 		ObservableSubscriber<Document> subscriber = new ObservableSubscriber<Document>();
 		collection.find().subscribe(subscriber);
 		return subscriber.get(60000, TimeUnit.MILLISECONDS);
 	}
-			
-	public Stream<Document> stream(String collectionName) throws Throwable{
-		MongoCollection<Document> collection = reactiveDbFactory.getDatabase().getCollection(collectionName, Document.class);
+
+	public Stream<Document> stream(String collectionName) throws Throwable {
+		MongoCollection<Document> collection = reactiveDbFactory.getDatabase()
+				.getCollection(collectionName, Document.class);
 		ObservableSubscriber<Document> subscriber = new ObservableSubscriber<Document>();
 		collection.find().subscribe(subscriber);
 		return subscriber.get(10000, TimeUnit.MILLISECONDS).stream();
 	}
-	
-	public void saveSingle(String collectionName, Document document){
-		MongoCollection<Document> collection = reactiveDbFactory.getDatabase().getCollection(collectionName, Document.class);
+
+	public void saveSingle(String collectionName, Document document) {
+		MongoCollection<Document> collection = reactiveDbFactory.getDatabase()
+				.getCollection(collectionName, Document.class);
 		OperationSubscriber<Success> subscriber = new OperationSubscriber<Success>();
 		Publisher<Success> publisher = collection.insertOne(document);
 		publisher.subscribe(subscriber);
 	}
-		
+
 }

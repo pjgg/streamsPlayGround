@@ -11,17 +11,19 @@ import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 
 public class ReactiveMongoDB {
-	
+
 	private final MongoClient mongoClient;
-	
-	public ReactiveMongoDB(String host) throws UnknownHostException{
-		ClusterSettings clusterSettings = ClusterSettings.builder().hosts(asList(new ServerAddress(host))).build();
-		MongoClientSettings settings = MongoClientSettings.builder().clusterSettings(clusterSettings).build();
+
+	public ReactiveMongoDB(String host) throws UnknownHostException {
+		ClusterSettings clusterSettings = ClusterSettings.builder()
+				.hosts(asList(new ServerAddress(host))).build();
+		MongoClientSettings settings = MongoClientSettings.builder()
+				.clusterSettings(clusterSettings).build();
 		mongoClient = MongoClients.create(settings);
 	}
 
 	public MongoClient getMongoClient() {
 		return mongoClient;
 	}
-	
+
 }

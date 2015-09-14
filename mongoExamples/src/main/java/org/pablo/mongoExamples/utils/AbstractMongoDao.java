@@ -11,7 +11,8 @@ import org.springframework.data.util.StreamUtils;
 
 public abstract class AbstractMongoDao<E, F, I> {
 
-	private static final Logger LOG = LoggerFactory.getLogger(AbstractMongoDao.class);
+	private static final Logger LOG = LoggerFactory
+			.getLogger(AbstractMongoDao.class);
 
 	private final String collectionName;
 	private final MongoOperations mongoOperations;

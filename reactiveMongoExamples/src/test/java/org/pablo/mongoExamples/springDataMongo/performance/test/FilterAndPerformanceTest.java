@@ -19,7 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:mongoExamples-context.xml")
 public class FilterAndPerformanceTest {
-	
+
 	private final static int SAMPLES_AMOUNT = 100;
 
 	private final static String[] DICTIONARY_NAMES = { "Jare", "David", "Dani",
@@ -27,26 +27,28 @@ public class FilterAndPerformanceTest {
 			"Giovana", "Mati", "Fernando" };
 
 	private List<Person> stringTestList = new ArrayList<Person>();
-	
+
 	@Autowired
 	private PersonRepository reactivePersonRepository;
-	
+
 	private FilterAndAction filterAndAction = new FilterAndAction();
-	
+
 	@Ignore
 	@Test
-	public void basicTest() throws MongoException{
+	public void basicTest() throws MongoException {
 		Stream<Person> people = reactivePersonRepository.findAllPersonStreams();
-		Stream<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExample(people.map(p ->p.getFirstname()));
+		Stream<String> result = filterAndAction
+				.filterWordsLongerThan4AndUpperCaseExample(people.map(p -> p
+						.getFirstname()));
 		result.max(new forTestComparator()::compare);
 	}
-	
+
 	@Ignore
 	@Test
-	public void saveTest() throws MongoException{
-		reactivePersonRepository.saveSinglePerson(new Person("test","test"));
+	public void saveTest() throws MongoException {
+		reactivePersonRepository.saveSinglePerson(new Person("test", "test"));
 	}
-	
+
 	public static class forTestComparator implements Comparator<String> {
 
 		@Override

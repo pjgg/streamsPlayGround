@@ -33,55 +33,59 @@ public class FilterAndActionPerformanceTest {
 			"Giovana", "Mati", "Fernando" };
 
 	private List<Person> stringTestList = new ArrayList<Person>();
-	
+
 	private PersonRepository personRepository;
-	
-	
+
 	private FilterAndAction filterAndAction = new FilterAndAction();
 
 	@Setup
 	public void setUp() {
-		
-		personRepository = new ClassPathXmlApplicationContext("mongoExamples-context.xml").getBean(PersonRepositoryImpl.class);
 
-//		for (int i = 0; i < SAMPLES_AMOUNT; i++) {
-//			String temp = DICTIONARY_NAMES[(new Random()).nextInt(DICTIONARY_NAMES.length)];
-//
-//			stringTestList.add(new Person(temp,temp));
-//		}
+		personRepository = new ClassPathXmlApplicationContext(
+				"mongoExamples-context.xml")
+				.getBean(PersonRepositoryImpl.class);
+
+		// for (int i = 0; i < SAMPLES_AMOUNT; i++) {
+		// String temp = DICTIONARY_NAMES[(new
+		// Random()).nextInt(DICTIONARY_NAMES.length)];
+		//
+		// stringTestList.add(new Person(temp,temp));
+		// }
 	}
 
-//	@Benchmark
-//	public void savePersonIterating() {
-//		
-//		for(Person p: stringTestList){
-//			personRepository.saveSinglePerson(p);	
-//		}
-//
-//	}
-
+	// @Benchmark
+	// public void savePersonIterating() {
+	//
+	// for(Person p: stringTestList){
+	// personRepository.saveSinglePerson(p);
+	// }
+	//
+	// }
 
 	@Benchmark
 	public void findAllAndFilterAndUpperCaseIterating() throws MongoException {
 		List<String> names = new ArrayList<String>();
 		List<Person> people = personRepository.findAllPersonList();
-		
-		for(Person p: people){
+
+		for (Person p : people) {
 			names.add(p.getFirstname());
 		}
-		
-		Set<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExampleIterating(names);
+
+		Set<String> result = filterAndAction
+				.filterWordsLongerThan4AndUpperCaseExampleIterating(names);
 		result.stream().max(new forTestComparator()::compare);
 	}
-	
+
 	@Benchmark
-	public void findAllStreamsAndFilterAndUpperCaseStreams() throws MongoException {
+	public void findAllStreamsAndFilterAndUpperCaseStreams()
+			throws MongoException {
 		Stream<Person> people = personRepository.findAllPersonStreams();
-		Stream<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExample(people.map(p ->p.getFirstname()));
+		Stream<String> result = filterAndAction
+				.filterWordsLongerThan4AndUpperCaseExample(people.map(p -> p
+						.getFirstname()));
 		result.max(new forTestComparator()::compare);
 	}
 
-	
 	public static class forTestComparator implements Comparator<String> {
 
 		@Override

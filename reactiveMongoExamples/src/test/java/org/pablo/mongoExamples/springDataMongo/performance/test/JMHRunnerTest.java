@@ -9,22 +9,19 @@ import org.openjdk.jmh.runner.options.TimeValue;
 import org.openjdk.jmh.runner.options.VerboseMode;
 
 public class JMHRunnerTest {
-	
-	@Test
-    public void runTests() throws RunnerException
-    {		
-		int warmupCount = 10;
-        int runCount = 50;
-        Options opts = new OptionsBuilder()
-                .include("org.pablo.mongoExamples.springDataMongo.performance.test.*")
-                .warmupTime(TimeValue.seconds(2))
-                .warmupIterations(warmupCount)
-                .measurementTime(TimeValue.seconds(2))
-                .measurementIterations(runCount)
-                .verbosity(VerboseMode.EXTRA)
-                .forks(1)
-                .build();
 
-        new Runner(opts).run();
-    }
+	@Test
+	public void runTests() throws RunnerException {
+		int warmupCount = 10;
+		int runCount = 50;
+		Options opts = new OptionsBuilder()
+				.include(
+						"org.pablo.mongoExamples.springDataMongo.performance.test.*")
+				.warmupTime(TimeValue.seconds(2)).warmupIterations(warmupCount)
+				.measurementTime(TimeValue.seconds(2))
+				.measurementIterations(runCount).verbosity(VerboseMode.EXTRA)
+				.forks(1).build();
+
+		new Runner(opts).run();
+	}
 }

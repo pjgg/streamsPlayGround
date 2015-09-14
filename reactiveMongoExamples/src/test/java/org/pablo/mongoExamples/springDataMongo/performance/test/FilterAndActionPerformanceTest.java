@@ -23,30 +23,38 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 @BenchmarkMode(Mode.Throughput)
 @OutputTimeUnit(TimeUnit.SECONDS)
 public class FilterAndActionPerformanceTest {
-	
+
 	private PersonRepository reactivePersonRepository;
-	
+
 	private FilterAndAction filterAndAction = new FilterAndAction();
 
 	@Setup
-	public void setUp() {		
-		reactivePersonRepository = new ClassPathXmlApplicationContext("mongoExamples-context.xml").getBean(ReactivePersonRepositoryImpl.class);
+	public void setUp() {
+		reactivePersonRepository = new ClassPathXmlApplicationContext(
+				"mongoExamples-context.xml")
+				.getBean(ReactivePersonRepositoryImpl.class);
 	}
 
 	@Benchmark
-	public void findAllListAndFilterAndUpperCaseReactiveStreams() throws MongoException {
+	public void findAllListAndFilterAndUpperCaseReactiveStreams()
+			throws MongoException {
 		List<Person> people = reactivePersonRepository.findAllPersonList();
-		Stream<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExample(people.stream().map(p ->p.getFirstname()));
+		Stream<String> result = filterAndAction
+				.filterWordsLongerThan4AndUpperCaseExample(people.stream().map(
+						p -> p.getFirstname()));
 		result.max(new forTestComparator()::compare);
 	}
-	
+
 	@Benchmark
-	public void findAllStreamAndFilterAndUpperCaseReactiveStreams() throws MongoException {
+	public void findAllStreamAndFilterAndUpperCaseReactiveStreams()
+			throws MongoException {
 		Stream<Person> people = reactivePersonRepository.findAllPersonStreams();
-		Stream<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExample(people.map(p ->p.getFirstname()));
+		Stream<String> result = filterAndAction
+				.filterWordsLongerThan4AndUpperCaseExample(people.map(p -> p
+						.getFirstname()));
 		result.max(new forTestComparator()::compare);
 	}
-	
+
 	public static class forTestComparator implements Comparator<String> {
 
 		@Override

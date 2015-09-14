@@ -2,13 +2,12 @@ package org.pablo.mongoExamples.model;
 
 import java.io.Serializable;
 
-
-public class Person implements Serializable{
+public class Person implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	public final static String COLLECTION = "person";
-	
+
 	public final static String ID = "id";
 	public final static String FIRST_NAME = "firstname";
 	public final static String LAST_NAME = "lastname";
@@ -21,17 +20,17 @@ public class Person implements Serializable{
 		this.firstname = fName;
 		this.lastname = lName;
 	}
-	
-	public Person(){}
+
+	public Person() {
+	}
 
 	public String getId() {
 		return id;
 	}
-	
+
 	public void setId(String id) {
 		this.id = id;
 	}
-	
 
 	public String getFirstname() {
 		return firstname;
