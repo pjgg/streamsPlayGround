@@ -3,7 +3,6 @@ package org.pablo.mongoExamples.performance.test;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
@@ -37,13 +36,14 @@ public class FilterAndActionPerformanceTest {
 	
 	private PersonRepository personRepository;
 	
+	
 	private FilterAndAction filterAndAction = new FilterAndAction();
 
 	@Setup
 	public void setUp() {
 		
 		personRepository = new ClassPathXmlApplicationContext("mongoExamples-context.xml").getBean(PersonRepositoryImpl.class);
-		
+
 //		for (int i = 0; i < SAMPLES_AMOUNT; i++) {
 //			String temp = DICTIONARY_NAMES[(new Random()).nextInt(DICTIONARY_NAMES.length)];
 //
@@ -80,6 +80,7 @@ public class FilterAndActionPerformanceTest {
 		Stream<String> result = filterAndAction.filterWordsLongerThan4AndUpperCaseExample(people.map(p ->p.getFirstname()));
 		result.max(new forTestComparator()::compare);
 	}
+
 	
 	public static class forTestComparator implements Comparator<String> {
 
