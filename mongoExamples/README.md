@@ -44,7 +44,7 @@ In other words
 
  ```
  Spring Data Mongo  List         2048.712 ops
- Mongon Data Mongo  Streams      2247.563 ops
+ Spring Data Mongo  Streams      2247.563 ops
  ```
 So it's slightly better Streams than List, when you read and operate mongo records. 
 

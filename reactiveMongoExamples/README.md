@@ -33,7 +33,7 @@ In other words
 
  ```
  Spring Data Mongo  List         2048.712 ops
- Mongon Data Mongo  Streams      2247.563 ops
+ Spring Data Mongo  Streams      2247.563 ops
  ```
  ```
  Mongo Reactive     List         2198.694 ops
