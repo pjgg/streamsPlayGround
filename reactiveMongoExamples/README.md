@@ -7,7 +7,7 @@ This is a simple multi-pom project to have fun and test java Stream API, complet
 There are new paradigms (new ways to think, feel and act) in the way that the different actors or components interact one each other in IT. The first time that hear about 'reactive' was two years ago, by TypeSafe company. Basically they talk about an event drive architecture where you have pubishers and consumers. This give you more flexibility (scalable), and at the same time is fault tolerant. All of this concept (that I explain very poorly) are nice, but we have to test it!. 
 
 We are going to integrate <a href="http://mongodb.github.io/mongo-java-driver-reactivestreams/">
-MongoDB Reactive Streams Java Driver</a>  in our test app, and then run the same test that we made with <a href="https://github.com/pjgg/streamsPlayGround/tree/master/reactiveMongoExamples"> Spring Mongo data. </a>
+MongoDB Reactive Streams Java Driver</a>  in our test app, and then run the same test that we made with <a href="https://github.com/pjgg/streamsPlayGround/tree/master/mongoExamples. </a>
 
 I will store 100 person in a mongo database and then I will retrieve those records by a simple 'getAll' query. Then I will make some filter operation over the results and check which way gives a better performance (Streams VS List). 
 
