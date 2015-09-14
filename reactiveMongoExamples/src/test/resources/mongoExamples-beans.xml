@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mongo="http://www.springframework.org/schema/data/mongo" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+		http://www.springframework.org/schema/data/mongo http://www.springframework.org/schema/data/mongo/spring-mongo-1.5.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+     <!-- Reactive Mongo Streams -->
+     <bean id="reactiveMongoDB" class="org.pablo.mongoExamples.springDataMongo.reactive.ReactiveMongoDB">
+     	<constructor-arg value="${mongo.host}" />
+     </bean>
+
+     <bean id="reactiveDbFactory" class="org.pablo.mongoExamples.springDataMongo.reactive.ReactiveDbFactory">
+	     <constructor-arg ref="reactiveMongoDB" />
+	     <constructor-arg value="${mongo.dbName}" />
+     </bean>
+     
+     <bean id="reactiveMongoTemplate" class="org.pablo.mongoExamples.springDataMongo.reactive.ReactiveMongoTemplate">
+     	<constructor-arg ref="reactiveDbFactory" />
+     </bean>
+     
+    <!--  Repository Layer -->   
+	<bean id="reactivePersonRepositoryImpl" class="org.pablo.mongoExamples.repository.ReactivePersonRepositoryImpl">
+		<constructor-arg ref="reactiveMongoTemplate" />
+	</bean>
+	
+</beans>
