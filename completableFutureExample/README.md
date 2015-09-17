@@ -2,9 +2,9 @@
 
 This is a simple multi-pom project to have fun and test java Stream API, completable futures and other new java 8 features. 
 
-## completableFutures mongoExamples
+## CompletableFutures mongoExamples
 
-Spring data mongo doesn't returns completableFutures (if you are not using dynamic repositories). So, in order to play with this Java8 feature you have to make the conversion by your self. In theory we should not gain anything in performance, because you make the same queries as usual and then you make the conversion. But let's test it. 
+Spring data mongo doesn't returns completableFutures (if you are not using dynamic repositories). So, in order to play with this Java8 new data type you have to make the conversion by your self. In theory we should not gain anything in performance, because you make the same queries as usual and then you make the conversion. But let's test it. 
 
 To test the performance I will use JMH micro benchmark framework. 
 
