@@ -29,22 +29,22 @@ To test the performance I will use JMH micro benchmark framework.
  ```
  Server: i7
  OS: OS x 10.8.3
- warmup: 10 iterations
+ warmup: 20 iterations
  measure: 50 iterations
  
  Benchmark                                                                                                             
  
                                             Mode  Cnt     Score    Error  Units
-findAllAndFilterAndUpperCaseIterating       thrpt   50  2048.712 ± 40.724  ops/s
-findAllStreamsAndFilterAndUpperCaseStreams  thrpt   50  2247.563 ± 44.703  ops/s
+findAllAndFilterAndUpperCaseIterating       thrpt   50  2085.862 ± 8.870  ops/s
+findAllStreamsAndFilterAndUpperCaseStreams  thrpt   50  2393.740 ± 34.195  ops/s
 
  ```
 
 In other words
 
  ```
- Spring Data Mongo  List         2048.712 ops
- Spring Data Mongo  Streams      2247.563 ops
+ Spring Data Mongo  List         2085.862 ops
+ Spring Data Mongo  Streams      2393.740 ops
  ```
 So it's slightly better Streams than List, when you read and operate mongo records. 
 

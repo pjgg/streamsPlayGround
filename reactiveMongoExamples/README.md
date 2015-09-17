@@ -18,26 +18,26 @@ To test the performance I will use JMH micro benchmark framework.
  ```
  Server: i7
  OS: OS x 10.8.3
- warmup: 10 iterations
+ warmup: 20 iterations
  measure: 50 iterations
  
 
 Benchmark       
                                                     Mode   Cnt     Score    Error  Units                                                                               
-findAllListAndFilterAndUpperCaseReactiveStreams    thrpt   50  2198.694 ± 143.219  ops/s
-findAllStreamAndFilterAndUpperCaseReactiveStreams  thrpt   50  2310.603 ±  55.712  ops/s
+findAllListAndFilterAndUpperCaseReactiveStreams    thrpt   50  2355.191 ± 55.454  ops/s
+findAllStreamAndFilterAndUpperCaseReactiveStreams  thrpt   50  2578.176 ±  47.759  ops/s
 
  ```
 
 In other words
 
  ```
- Spring Data Mongo  List         2048.712 ops
- Spring Data Mongo  Streams      2247.563 ops
+ Spring Data Mongo  List         2085.862 ops
+ Spring Data Mongo  Streams      2393.740 ops
  ```
  ```
- Mongo Reactive     List         2198.694 ops
- Mongo Reactive     Streams      2310.603 ops
+ Mongo Reactive     List         2355.191 ops
+ Mongo Reactive     Streams      2578.176 ops
  ```
  
 ## Conclusion

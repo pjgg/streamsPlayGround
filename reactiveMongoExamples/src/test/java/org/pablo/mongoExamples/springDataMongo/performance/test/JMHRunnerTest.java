@@ -12,7 +12,7 @@ public class JMHRunnerTest {
 
 	@Test
 	public void runTests() throws RunnerException {
-		int warmupCount = 10;
+		int warmupCount = 20;
 		int runCount = 50;
 		Options opts = new OptionsBuilder()
 				.include(

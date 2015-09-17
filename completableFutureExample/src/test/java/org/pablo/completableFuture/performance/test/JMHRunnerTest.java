@@ -1,4 +1,4 @@
-package org.pablo.mongoExamples.performance.test;
+package org.pablo.completableFuture.performance.test;
 
 import org.junit.Test;
 import org.openjdk.jmh.runner.Runner;
@@ -12,10 +12,10 @@ public class JMHRunnerTest {
 
 	@Test
 	public void runTests() throws RunnerException {
-		int warmupCount = 20;
+		int warmupCount = 10;
 		int runCount = 50;
 		Options opts = new OptionsBuilder()
-				.include("org.pablo.mongoExamples.performance.test.*")
+				.include("org.pablo.completableFuture.performance.test.*")
 				.warmupTime(TimeValue.seconds(2)).warmupIterations(warmupCount)
 				.measurementTime(TimeValue.seconds(2))
 				.measurementIterations(runCount).verbosity(VerboseMode.EXTRA)
@@ -24,3 +24,4 @@ public class JMHRunnerTest {
 		new Runner(opts).run();
 	}
 }
+
