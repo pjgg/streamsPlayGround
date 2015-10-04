@@ -4,7 +4,7 @@ This is a simple multi-pom project to have fun and test java Stream API, complet
 
 ## filterSortMap
 
-This is a functional example about filters, sort, and maps. 
+This is a functional example about filters, sort, maps and custom collectors 
 
 - Talk about filters, it's talk about predicates.
 - Talk about sort, it's talk about comparators.

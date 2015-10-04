@@ -4,8 +4,10 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import org.pablo.filterSortMapExamples.collectors.PeopleSummarizeCollector;
 import org.pablo.filterSortMapExamples.dto.PersonDTO;
 import org.pablo.filterSortMapExamples.functions.PersonToPersonDtoConverter;
+import org.pablo.filterSortMapExamples.model.PeopleSummarize;
 import org.pablo.filterSortMapExamples.model.Person;
 import org.pablo.filterSortMapExamples.predicates.PersonPredicates;
 
@@ -30,4 +32,7 @@ public class FilterSortMapService{
 		return converter.convertToStream(people);
 	}
 	
+	public PeopleSummarize peopleToPeopleSummarize(Stream<Person> people){
+		return people.collect(new PeopleSummarizeCollector());
+	}
 }
